@@ -23,7 +23,14 @@ return new class extends Migration
             $table->date('date_naissance')->nullable();
             $table->string('photo')->nullable();
             $table->date('date_venue');
-            $table->timestamps();
+              $table->unsignedBigInteger('user_id');
+
+    // Définir la relation
+    /*$table->foreign('user_id')
+          ->references('id')
+          ->on('users')
+          ->onDelete('cascade'); // si le client est supprimé, supprimer ses mesures
+            $table->timestamps();*/
         });
     }
 
