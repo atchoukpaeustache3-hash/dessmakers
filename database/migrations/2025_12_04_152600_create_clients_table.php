@@ -16,21 +16,22 @@ return new class extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('phone');
-            $table->string('profession')->nullable();
+            //$table->string('profession')->nullable();
             $table->string('adresse');
             $table->enum('sexe', ['homme', 'femme']);
             $table->string('email')->nullable()->unique();
-            $table->date('date_naissance')->nullable();
-            $table->string('photo')->nullable();
+           // $table->date('date_naissance')->nullable();
+           // $table->string('photo')->nullable();
             $table->date('date_venue');
               $table->unsignedBigInteger('user_id');
+              $table->timestamps();
 
     // Définir la relation
     /*$table->foreign('user_id')
           ->references('id')
           ->on('users')
           ->onDelete('cascade'); // si le client est supprimé, supprimer ses mesures
-            $table->timestamps();*/
+            */
         });
     }
 

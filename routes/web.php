@@ -1,12 +1,35 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\MesureController;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/zuu', function () {
     return view('welcome');
 });
+//Mesure
+Route::get('/mesure/create/{client_id}', [MesureController::class, 'create'])->name('mesure.create');
+Route::get('/mesures/{mesure}/edit', [MesureController::class, 'edit'])->name('mesure.edit');
+Route::put('/mesures/{mesure}', [MesureController::class, 'update'])->name('mesure.update');
+
+ Route::post('/mesure', [MesureController::class, 'store'])->name('mesure.store');
+Route::get('/mesures/index/{client_id}', [MesureController::class, 'index'])->name('mesure.index');
+Route::get('/mesures', [MesureController::class, 'all'])->name('mesure.all');
+
+// Client
+Route::get('/clients', [ClientController::class, 'index'])->name('client.index');
+// Supprimer
+Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('client.destroy');
+
+Route::get('/client', [ClientController::class, 'create'])->name('client.create');
+ Route::post('client', [ClientController::class, 'store'])->name('client.store');
+
+Route::get('/clients/{client}/edit', [ClientController::class, 'edit'])->name('client.edit');
+
+Route::put('/clients/{client}', [ClientController::class, 'update'])->name('client.update');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
 

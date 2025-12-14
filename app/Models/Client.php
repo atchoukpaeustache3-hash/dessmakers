@@ -7,6 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
+        protected $fillable = [
+        'name',
+        'lastname',
+        'phone',
+        //'profession',
+        'adresse',
+        'sexe',
+        'email',
+       // 'date_naissance',
+       // 'photo',
+        'date_venue',
+        'user_id',
+    ];
+
     public function mesures()
     {
         return $this->hasMany(mesure::class);
