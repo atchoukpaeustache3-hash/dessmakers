@@ -1,5 +1,14 @@
 @extends('back.layouts.master')
-@section('title', 'Modifier un  clients')
+
+@section('title', 'Modifier client')
+@section('page-title', 'client')
+
+@section('breadcrumb')
+    <li class="breadcrumb-item active">Modification info de </li>
+    <li class="breadcrumb-item active">
+        {{ $client->nom }} {{ $client->prenom }}
+    </li>
+@endsection
 @section('content')
 <div class="container mt-4">
 
@@ -82,7 +91,11 @@
 
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">Mettre à jour</button>
+          <div class="text-end mt-3">
+                <button type="submit" class="btn btn-primary">
+                    Mise à jour
+                </button>
+            </div>
 
         </form>
 

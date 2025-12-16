@@ -1,131 +1,106 @@
 @extends('back.layouts.master')
-@section('title', 'Liste des mesures')
 
+@section('title', 'Détail mesure')
+@section('page-title', 'mesures')
+
+@section('breadcrumb')
+    <li class="breadcrumb-item">
+        <a href="">Mesures  </a>
+    </li>
+    <li class="breadcrumb-item active">
+    </li>
+@endsection
 @section('content')
+ 
 
 @if ($mesures->isEmpty())
-    <div class="alert alert-info">
+    <div class="alert alert-info text-center">
         Ce client n’a encore aucune mesure enregistrée.
     </div>
 @else
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="card">
+<div class="d-flex justify-content-center flex-wrap gap-3 py-4">
 
-            <div class="card-header">
-                <h5 class="card-title mb-0">Liste des mesures</h5>
+    @foreach($mesures as $mesure)
+    <div class="card shadow-lg h-100" style="width: 350px;">
+
+        {{-- HEADER --}}
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+            <h5 class="mb-0 fw-semibold text-truncate">
+                Mesures du client
+            </h5>
+
+            <div class="dropdown">
+                <button class="btn btn-soft-secondary btn-sm" data-bs-toggle="dropdown">
+                    <i class="ri-more-fill"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <a href="{{ route('mesure.edit', $mesure->id) }}" class="dropdown-item">
+                            <i class="ri-pencil-fill me-2"></i> Modifier
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        {{-- BODY --}}
+        <div class="card-body p-4">
+
+            <div class="mb-4 text-center">
+                <h6 class="fw-bold mb-1">
+                    <i class="ri-user-3-line me-1"></i>
+                    {{ $mesure->client->name ?? '' }} {{ $mesure->client->lastname ?? '' }}
+                </h6>
             </div>
 
-            <div class="card-body">
+            <div class="row g-3">
 
-                <!-- FIX STYLE : TABLEAU FULL WIDTH + SCROLL HORIZONTAL -->
-                <div class="table-responsive" style="overflow-x:auto; width:100%;">
+                <div class="col-md-6"><strong>Encolure :</strong> {{ $mesure->encolure }}</div>
+                <div class="col-md-6"><strong>Tr. Poitrine :</strong> {{ $mesure->tr_poitrine }}</div>
 
-                    <table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th scope="col" style="width: 10px;">
-                                    <div class="form-check">
-                                        <input class="form-check-input fs-15" type="checkbox" id="checkAll">
-                                    </div>
-                                </th>
-                                <th>SR No.</th>
-                                <th>Client</th>
-                                <th>Encolure</th>
-                                <th>Tr. Poitrine</th>
-                                <th>Tr. Sous Poitrine</th>
-                                <th>Tr. Taille</th>
-                                <th>Tr. Bassin</th>
-                                <th>Tr. Cuisse</th>
-                                <th>Tr. Ceinture</th>
-                                <th>Tr. Bras</th>
-                                <th>Tr. Manche</th>
-                                <th>Tr. Bas</th>
-                                <th>Tr. Tête</th>
-                                <th>Hr. Poitrine</th>
-                                <th>Hr. Sous Poitrine</th>
-                                <th>Lg. Épaule</th>
-                                <th>Lg. Taille</th>
-                                <th>Lg. Taille Dos</th>
-                                <th>Lg. Manche</th>
-                                <th>Lg. Pantalon</th>
-                                <th>Lg. Genoux</th>
-                                <th>Lg. Chemise</th>
-                                <th>Carrure Devant</th>
-                                <th>Carrure Dos</th>
-                                <th>Demi Dos</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
+                <div class="col-md-6"><strong>Tr. Sous Poitrine :</strong> {{ $mesure->tr_sous_poitrine }}</div>
+                <div class="col-md-6"><strong>Tr. Taille :</strong> {{ $mesure->tr_taille }}</div>
 
-                        <tbody>
-                            @foreach($mesures as $key => $mesure)
-                            <tr>
-                                <th scope="row">
-                                    <div class="form-check">
-                                        <input class="form-check-input fs-15" type="checkbox" value="{{ $mesure->id }}">
-                                    </div>
-                                </th>
+                <div class="col-md-6"><strong>Tr. Bassin :</strong> {{ $mesure->tr_bassin }}</div>
+                <div class="col-md-6"><strong>Tr. Cuisse :</strong> {{ $mesure->tr_cuisse }}</div>
 
-                                <td>{{ $key + 1 }}</td>
+                <div class="col-md-6"><strong>Tr. Ceinture :</strong> {{ $mesure->tr_ceinture }}</div>
+                <div class="col-md-6"><strong>Tr. Bras :</strong> {{ $mesure->tr_bras }}</div>
 
-                                <td>{{ $mesure->client->name ?? '' }} {{ $mesure->client->lastname ?? '' }}</td>
+                <div class="col-md-6"><strong>Tr. Manche :</strong> {{ $mesure->tr_manche }}</div>
+                <div class="col-md-6"><strong>Tr. Bas :</strong> {{ $mesure->tr_bas }}</div>
 
-                                <td>{{ $mesure->encolure }}</td>
-                                <td>{{ $mesure->tr_poitrine }}</td>
-                                <td>{{ $mesure->tr_sous_poitrine }}</td>
-                                <td>{{ $mesure->tr_taille }}</td>
-                                <td>{{ $mesure->tr_bassin }}</td>
-                                <td>{{ $mesure->tr_cuisse }}</td>
-                                <td>{{ $mesure->tr_ceinture }}</td>
-                                <td>{{ $mesure->tr_bras }}</td>
-                                <td>{{ $mesure->tr_manche }}</td>
-                                <td>{{ $mesure->tr_bas }}</td>
-                                <td>{{ $mesure->tr_tete }}</td>
-                                <td>{{ $mesure->hr_poitrine }}</td>
-                                <td>{{ $mesure->hr_sous_poitrine }}</td>
-                                <td>{{ $mesure->lg_epaule }}</td>
-                                <td>{{ $mesure->lg_taille }}</td>
-                                <td>{{ $mesure->lg_taille_dos }}</td>
-                                <td>{{ $mesure->lg_manche }}</td>
-                                <td>{{ $mesure->lg_pantalon }}</td>
-                                <td>{{ $mesure->lg_genoux }}</td>
-                                <td>{{ $mesure->lg_chemise }}</td>
-                                <td>{{ $mesure->carrure_devant }}</td>
-                                <td>{{ $mesure->carrure_dos }}</td>
-                                <td>{{ $mesure->demi_dos }}</td>
+                <div class="col-md-6"><strong>Tr. Tête :</strong> {{ $mesure->tr_tete }}</div>
+                <div class="col-md-6"><strong>Hr. Poitrine :</strong> {{ $mesure->hr_poitrine }}</div>
 
-                                <td>
-                                    <div class="dropdown d-inline-block">
-                                        <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown">
-                                            <i class="ri-more-fill align-middle"></i>
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-menu-end">
-                                           
-                                           <li>
-                                                <a href="{{ route('mesure.edit', $mesure->id) }}" class="dropdown-item">
-                                                    <i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Modifier
-                                                </a>
-                                            </li>
-                                            
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
+                <div class="col-md-6"><strong>Hr. Sous Poitrine :</strong> {{ $mesure->hr_sous_poitrine }}</div>
+                <div class="col-md-6"><strong>Lg. Épaule :</strong> {{ $mesure->lg_epaule }}</div>
 
-                    </table>
+                <div class="col-md-6"><strong>Lg. Taille :</strong> {{ $mesure->lg_taille }}</div>
+                <div class="col-md-6"><strong>Lg. Taille Dos :</strong> {{ $mesure->lg_taille_dos }}</div>
 
-                </div> <!-- FIN RESPONSIVE -->
+                <div class="col-md-6"><strong>Lg. Manche :</strong> {{ $mesure->lg_manche }}</div>
+                <div class="col-md-6"><strong>Lg. Pantalon :</strong> {{ $mesure->lg_pantalon }}</div>
+
+                <div class="col-md-6"><strong>Lg. Genoux :</strong> {{ $mesure->lg_genoux }}</div>
+                <div class="col-md-6"><strong>Lg. Chemise :</strong> {{ $mesure->lg_chemise }}</div>
+
+                <div class="col-md-6"><strong>Carrure Devant :</strong> {{ $mesure->carrure_devant }}</div>
+                <div class="col-md-6"><strong>Carrure Dos :</strong> {{ $mesure->carrure_dos }}</div>
+
+                <div class="col-md-6"><strong>Demi Dos :</strong> {{ $mesure->demi_dos }}</div>
 
             </div>
 
         </div>
     </div>
+ 
+    @endforeach
+
 </div>
 
-@endif  {{-- ✅ fermeture du if --}}
+
+@endif
 
 @endsection

@@ -1,6 +1,12 @@
 @extends('back.layouts.master')
-@section('title', 'Modifier une mesure')
 
+@section('title', 'Modifier mesure')
+@section('page-title', 'mesure')
+
+@section('breadcrumb')
+    <li class="breadcrumb-item active">Modification mesure </li>
+    
+@endsection
 @section('content')
 
 <div class="row">

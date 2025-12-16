@@ -1,5 +1,11 @@
 @extends('back.layouts.master')
-@section('title', 'Liste des mesures')
+
+@section('title', 'Liste Mesures')
+@section('page-title', 'Liste Mesures')
+
+@section('breadcrumb')
+    <li class="breadcrumb-item active">Liste Mesures</li>
+@endsection
 
 @section('content')
 

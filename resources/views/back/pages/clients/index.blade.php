@@ -1,12 +1,18 @@
 @extends('back.layouts.master')
-@section('title', 'Liste des clients')
+
+@section('title', 'Liste Clients')
+@section('page-title', 'Liste Clients')
+
+@section('breadcrumb')
+    <li class="breadcrumb-item active">Liste Clients</li>
+@endsection
 @section('content')
 
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title mb-0">Add, Edit & Remove</h4>
+                <h4 class="card-title mb-0">LISTE DES CLIENTS</h4>
             </div>
 
             <div class="card-body">
@@ -15,11 +21,9 @@
                         <div class="col-sm-auto">
                             <div>
                                 <a href="{{ route('client.create') }}" class="btn btn-success add-btn">
-                                    <i class="ri-add-line align-bottom me-1"></i> Add
+                                    <i class="ri-add-line align-bottom me-1"></i> Ajouter Client
                                 </a>
-                                <button class="btn btn-soft-danger" onclick="deleteMultiple()">
-                                    <i class="ri-delete-bin-2-line"></i>
-                                </button>
+                               
                             </div>
                         </div>
 

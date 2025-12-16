@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\MesureController;
+use App\Http\Controllers\ApprentiController;
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/zuu', function () {
     return view('welcome');
 });
+Route::middleware('auth')->group(function () {
+//Aprentit
+Route::resource('apprentis', ApprentiController::class);
+Route::post('apprentis/{apprenti}/payer', [ApprentiController::class, 'payer'])
+    ->name('apprentis.payer');
+
 //Mesure
 Route::get('/mesure/create/{client_id}', [MesureController::class, 'create'])->name('mesure.create');
 Route::get('/mesures/{mesure}/edit', [MesureController::class, 'edit'])->name('mesure.edit');
@@ -37,7 +44,11 @@ Route::get('/dashboards', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
