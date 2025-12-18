@@ -5,7 +5,7 @@
             <!-- LOGO & HAMBURGER -->
             <div class="d-flex align-items-center">
                 <div class="navbar-brand-box horizontal-logo">
-                    <a href="{{ route('home') }}" class="logo logo-dark">
+                    <a href="" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="{{ asset('storage/back/assets/images/logo-sm.png') }}" alt="" height="22">
                         </span>
@@ -13,7 +13,7 @@
                             <img src="{{ asset('storage/back/assets/images/logo-dark.png') }}" alt="" height="17">
                         </span>
                     </a>
-                    <a href="{{ route('home') }}" class="logo logo-light">
+                    <a href="" class="logo logo-light">
                         <span class="logo-sm">
                             <img src="{{ asset('storage/back/assets/images/logo-sm.png') }}" alt="" height="22">
                         </span>
@@ -45,18 +45,18 @@
                         <i class='bx bx-moon fs-22'></i>
                     </button>
                 </div>
-
                 <!-- User dropdown -->
                 <div class="dropdown ms-sm-3 header-item topbar-user">
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
                             <img src="{{ Auth::user()->photo ? asset('storage/' . Auth::user()->photo) : asset('storage/back/assets/images/users/avatar-1.jpg') }}" 
-                                 alt="Photo de profil" class="img-fluid rounded" style="max-height: 70px;">
+                                 alt="avatar" class="rounded-circle me-2" width="40" height="40">
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
                                     {{ Auth::check() ? Auth::user()->name : 'Invité' }}
                                 </span>
+                                
                                 <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">
                                     {{ Auth::check() ? Auth::user()->email : '' }}
                                 </span>
@@ -65,8 +65,8 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <h6 class="dropdown-header">Bienvenue {{ Auth::check() ? Auth::user()->name : 'Invité' }}!</h6>
-                        <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> Profile</a>
-                       <a class="dropdown-item" href="#"
+                        <a class="dropdown-item" href="{{ route('profile.create') }}"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> Profile</a>
+                       <a class="dropdown-item" href="{{ route('profile.create') }}"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
                             Déconnexion

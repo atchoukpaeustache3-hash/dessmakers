@@ -6,7 +6,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Sign In | Velzon - Admin & Dashboard Template</title>
+    <title>Connectez-vous à | Expedit New Style - Conçu et developper par la Légende Technologie </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -60,13 +60,13 @@
                                                     </div>
                                                     <div class="carousel-inner text-center text-white-50 pb-5">
                                                         <div class="carousel-item active">
-                                                            <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                            <p class="fs-15 fst-italic">"Génial ! Code propre, design épuré, personnalisation facile. Merci beaucoup ! "</p>
                                                         </div>
                                                         <div class="carousel-item">
-                                                            <p class="fs-15 fst-italic">" The theme is really great with an amazing customer support."</p>
+                                                            <p class="fs-15 fst-italic">" Le thème est vraiment excellent et le service client est exceptionnel."</p>
                                                         </div>
                                                         <div class="carousel-item">
-                                                            <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                            <p class="fs-15 fst-italic">" Génial ! Code propre, design épuré, personnalisation facile. Merci beaucoup ! "</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -80,8 +80,8 @@
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 p-4">
                                         <div>
-                                            <h5 class="text-primary">Welcome Back !</h5>
-                                            <p class="text-muted">Sign in to continue to Velzon.</p>
+                                            <h5 class="text-primary">Comptent de te revoir !</h5>
+                                            <p class="text-muted">Connectez-vous pour continuer.</p>
                                         </div>
 
                                         <div class="mt-4">
@@ -98,10 +98,10 @@
                                                 <div class="mb-3">
                                                      @if (Route::has('password.request'))
                                                     <div class="float-end">
-                                                        <a href="auth-pass-reset-cover.html" class="text-muted">Forgot password?</a>
+                                                        <a href="auth-pass-reset-cover.html" class="text-muted">Mot de passe oublié ?</a>
                                                     </div>
                                                      @endif
-                                                    <label class="form-label" for="password-input">Password</label>
+                                                    <label class="form-label" for="password-input">Moe de passe</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
                                                         <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input"  
                                                                                 name="password"
@@ -114,14 +114,14 @@
 
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
-                                                    <label class="form-check-label" for="auth-remember-check">Remember me</label>
+                                                    <label class="form-check-label" for="auth-remember-check">Souviens-toi de moi</label>
                                                 </div>
 
                                                 <div class="mt-4">
-                                                    <button class="btn btn-success w-100" type="submit">Sign In</button>
+                                                    <button class="btn btn-success w-100" type="submit">Se connecter </button>
                                                 </div>
 
-                                                <div class="mt-4 text-center">
+                                               <!-- <div class="mt-4 text-center">
                                                     <div class="signin-other-title">
                                                         <h5 class="fs-13 mb-4 title">Sign In with</h5>
                                                     </div>
@@ -132,13 +132,13 @@
                                                         <button type="button" class="btn btn-dark btn-icon waves-effect waves-light"><i class="ri-github-fill fs-16"></i></button>
                                                         <button type="button" class="btn btn-info btn-icon waves-effect waves-light"><i class="ri-twitter-fill fs-16"></i></button>
                                                     </div>
-                                                </div>
+                                                </div> -->
 
                                             </form>
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Don't have an account ? <a href="auth-signup-cover.html" class="fw-semibold text-primary text-decoration-underline"> Signup</a> </p>
+                                            <p class="mb-0">Vous n'avez pas de compte ?  <a href="auth-signup-cover.html" class="fw-semibold text-primary text-decoration-underline"> Inscrivez-vous </a> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +164,7 @@
                     <div class="col-lg-12">
                         <div class="text-center">
                             <p class="mb-0">&copy;
-                                <script>document.write(new Date().getFullYear())</script> Velzon. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
+                                <script>document.write(new Date().getFullYear())</script> Expédit New Style. Conçu par <i class="mdi mdi-heart text-danger"></i> La Légende Technologie
                             </p>
                         </div>
                     </div>

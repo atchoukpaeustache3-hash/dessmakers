@@ -76,42 +76,33 @@
                                     </td>
                                     <td>{{ $client->email }}</td>
 <td>
-    <div class="dropdown">
-        <!-- Bouton trois points -->
-        <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton{{ $client->id }}" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="ri-more-2-fill"></i>
-        </button>
+    <div class="d-flex gap-2">
+        <!-- Voir Mesure -->
+        <a href="{{ route('mesure.index', $client->id) }}" class="btn btn-info btn-sm" title="Voir Mesure">
+            <i class="ri-eye-line"></i>
+        </a>
 
-        <!-- Menu déroulant -->
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ $client->id }}">
-            <li>
-                <a class="dropdown-item" href="{{ route('client.edit', $client->id) }}">
-                    <i class="ri-pencil-line me-2"></i> Edit
-                </a>
-            </li>
-                        <li>
-                <a class="dropdown-item" href="{{ route('mesure.index', $client->id) }}">
-                    <i class="ri-eye-line me-2"></i> Voir Mesure
-                </a>
-            </li>
-            <li>
-            
-                <form action="{{ route('client.destroy', $client->id) }}" method="POST" class="d-inline">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="dropdown-item">
-                        <i class="ri-delete-bin-line me-2"></i> Remove
-                    </button>
-                </form>
-            </li>
-            <li>
-                <a class="dropdown-item" href="{{ route('mesure.create', $client->id) }}">
-                    <i class="ri-add-line me-2"></i> Ajouter Mesure
-                </a>
-            </li>
-        </ul>
+        <!-- Editer Client -->
+        <a href="{{ route('client.edit', $client->id) }}" class="btn btn-primary btn-sm" title="Editer">
+            <i class="ri-pencil-line"></i>
+        </a>
+
+        <!-- Supprimer Client -->
+        <form action="{{ route('client.destroy', $client->id) }}" method="POST" class="d-inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger btn-sm" title="Supprimer" onclick="return confirm('Voulez-vous vraiment supprimer ce client ?')">
+                <i class="ri-delete-bin-line"></i>
+            </button>
+        </form>
+
+        <!-- Ajouter Mesure -->
+        <a href="{{ route('mesure.create', $client->id) }}" class="btn btn-success btn-sm" title="Ajouter Mesure">
+            <i class="ri-add-line"></i>
+        </a>
     </div>
 </td>
+
 
                                 </tr>
                                 @endforeach

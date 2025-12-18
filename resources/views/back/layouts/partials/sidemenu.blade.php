@@ -22,18 +22,7 @@
     <div id="scrollbar">
         <div class="container-fluid">
 
-            <!-- USER INFO -->
-            <div class="d-flex align-items-center p-3 mb-3 rounded bg-light text-dark">
-                @php
-                    $user = Auth::user();
-                @endphp
-                <img src="{{ $user->photo ? asset('storage/'.$user->photo) : asset('storage/back/assets/images/users/avatar-1.jpg') }}"
-                     alt="avatar" class="rounded-circle me-2" width="40" height="40">
-                <div>
-                    <div class="fw-bold">{{ $user->name ?? 'Utilisateur' }}</div>
-                    <small class="text-muted">{{ $user->email ?? '' }}</small>
-                </div>
-            </div>
+           
 
             <!-- MENU -->
             <ul class="navbar-nav" id="navbar-nav">
@@ -101,6 +90,22 @@
                         </ul>
                     </div>
                 </li>
+<li class="nav-item">
+    <a class="nav-link menu-link" href="#sidebarUsers" data-bs-toggle="collapse" role="button"
+       aria-expanded="false" aria-controls="sidebarUsers">
+        <i class="ri-user-line"></i> <span data-key="t-users">Utilisateurs</span>
+    </a>
+    <div class="collapse menu-dropdown" id="sidebarUsers">
+        <ul class="nav nav-sm flex-column">
+            <li class="nav-item">
+                <a href="{{ route('user.index') }}" class="nav-link" data-key="t-list">Liste</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('user.create') }}" class="nav-link" data-key="t-add">Ajouter utilisateur</a>
+            </li>
+        </ul>
+    </div>
+</li>
 
             </ul>
         </div>

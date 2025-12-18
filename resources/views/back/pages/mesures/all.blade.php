@@ -60,7 +60,7 @@
                             <tr>
                                 <th><input class="form-check-input fs-15" type="checkbox" value="{{ $mesure->id }}"></th>
                                 <td>{{ $key + 1 }}</td>
-                                <td class="customer_name">{{ $mesure->client->name ?? '' }} {{ $mesure->client->lastname ?? '' }}</td>
+                                <td class="customer_name">{{ $mesure->client->name ?? '' }}  {{ $mesure->client->lastname ?? '' }}</td>
                                 <td>{{ $mesure->encolure }}</td>
                                 <td>{{ $mesure->tr_poitrine }}</td>
                                 <td>{{ $mesure->tr_sous_poitrine }}</td>
@@ -86,19 +86,14 @@
                                 <td>{{ $mesure->demi_dos }}</td>
 
                                 <td>
-                                    <div class="dropdown d-inline-block">
-                                        <button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown">
-                                            <i class="ri-more-fill align-middle"></i>
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-menu-end">
+                                        <div class="d-flex gap-2">
                                             
-                                            <li>
-                                                <a href="{{ route('mesure.edit', $mesure->id) }}" class="dropdown-item">
-                                                    <i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Modifier
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                                  <!-- Editer Client -->
+                                                    <a href="{{ route('mesure.edit', $mesure->id) }}" class="btn btn-primary btn-sm" title="Editer">
+                                                        <i class="ri-pencil-line"></i>
+                                                    </a>
+                                            
+                                         </div>
                                 </td>
                             </tr>
                             @endforeach

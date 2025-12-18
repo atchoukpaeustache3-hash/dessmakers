@@ -28,6 +28,23 @@ Route::get('/mesures', [MesureController::class, 'all'])->name('mesure.all');
 
 // Client
 Route::get('/clients', [ClientController::class, 'index'])->name('client.index');
+Route::get('/profiles', [ClientController::class, 'profile'])->name('profile.create');
+Route::get('/profil', [ClientController::class, 'edite'])->name('profil.edit');
+Route::get('/utilisateur', [ClientController::class, 'users'])->name('user.create');
+ Route::post('/utilisateur/store', [ClientController::class, 'storeuser'])->name('user.store');
+ Route::get('/utilisateur/index', [ClientController::class, 'indexe'])->name('user.index');
+
+ // Modifier nom
+    Route::put('/profile', [ClientController::class, 'updat'])
+        ->name('profile.update');
+
+    // Modifier mot de passe
+    Route::put('/profile/password', [ClientController::class, 'updatePassword'])
+        ->name('profile.password.update');
+
+    // Modifier photo
+    Route::post('/profile/photo', [ClientController::class, 'updatePhoto'])
+        ->name('profile.photo.update');
 // Supprimer
 Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('client.destroy');
 
@@ -39,6 +56,7 @@ Route::get('/clients/{client}/edit', [ClientController::class, 'edit'])->name('c
 Route::put('/clients/{client}', [ClientController::class, 'update'])->name('client.update');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
+
 
 Route::get('/dashboards', function () {
     return view('dashboard');

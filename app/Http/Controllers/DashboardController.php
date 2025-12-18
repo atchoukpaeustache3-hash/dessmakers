@@ -19,7 +19,8 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        //
+                 return view('back.pages.clients.create');
+
     }
 
     /**

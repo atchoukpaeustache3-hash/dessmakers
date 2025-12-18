@@ -60,7 +60,7 @@
                                 <input type="date" name="date_naissance" class="form-control">
                             </div>
 
-                            <div class="col-md-8 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label>Adresse</label>
                                 <input type="text" name="adresse" class="form-control">
                             </div>
