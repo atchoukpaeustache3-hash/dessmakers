@@ -65,7 +65,7 @@
                                         <a href="#" class="btn btn-info btn-sm">
                                             <i class="ri-eye-line"></i>
                                         </a>
-                                        <a href="#" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary btn-sm">
                                             <i class="ri-pencil-line"></i>
                                         </a>
                                     </div>

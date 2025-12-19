@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Sign Up | Velzon - Admin & Dashboard Template</title>
+    <title>Inscription sur | Expedit New Style - Conçu et developper par la Légende Technologie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -79,8 +79,8 @@
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 p-4">
                                         <div>
-                                            <h5 class="text-primary">Register Account</h5>
-                                            <p class="text-muted">Get your Free Velzon account now.</p>
+                                            <h5 class="text-primary">Créer un compte </h5>
+                                            <p class="text-muted">Créez votre compte gratuit dès maintenant.</p>
                                         </div>
 
                                         <div class="mt-4">
@@ -89,84 +89,72 @@
 
                                                 <div class="mb-3">
                                                     <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
-                                                    <input  class="form-control" id="useremail" placeholder="Enter email address" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                                                    <input  class="form-control" id="useremail" placeholder="Saisissez votre adresse email" type="email" name="email" :value="old('email')" required autocomplete="username" />
                                                      <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
                                                     <div class="invalid-feedback">
-                                                        Please enter email
+                                                        Le champs Email est vide 
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
-                                                    <input  class="form-control" id="username" placeholder="Enter username" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                                                    <label for="username" class="form-label">Nom <span class="text-danger">*</span></label>
+                                                    <input  class="form-control" id="username" placeholder="Saisissez votre nom d'utilisateur" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
                                                          <x-input-error :messages="$errors->get('name')" class="mt-2" />
                                                     <div class="invalid-feedback">
-                                                        Please enter username
+                                                       Le champs Nom est vide
                                                     </div>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="password-input">Password</label>
+                                                    <label class="form-label" for="password-input">Mot de passe</label>
                                                     <div class="position-relative auth-pass-inputgroup">
-                                                        <input  class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  type="password"
+                                                        <input  class="form-control pe-5 password-input" onpaste="return false" placeholder="Saisissez le mot de passe" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  type="password"
                                                                                                                             name="password"
                                                                                                                             required autocomplete="new-password" /> 
 
                                                              <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                         <div class="invalid-feedback">
-                                                            Please enter password
+                                                            Le champs mot de passe est vide
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="mb-3">
-                                                    <label class="form-label" for="password-input">Confirm Password</label>
+                                                    <label class="form-label" for="password-input">confirmez le mot de passe</label>
                                                     <div class="position-relative auth-pass-inputgroup">
-                                                        <input  class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter Confirm Password" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   type="password"
+                                                        <input  class="form-control pe-5 password-input" onpaste="return false" placeholder="confirmation mot de passe" id="password-input" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"   type="password"
                                                                           name="password_confirmation" required autocomplete="new-password" />
 
                                               <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
 
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                         <div class="invalid-feedback">
-                                                            Please enter Confirm Password
+                                                            Le champs confirmation mot de passe est vide
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <div class="mb-4">
-                                                    <p class="mb-0 fs-12 text-muted fst-italic">By registering you agree to the Velzon <a href="#" class="text-primary text-decoration-underline fst-normal fw-medium">Terms of Use</a></p>
+                                                    <p class="mb-0 fs-12 text-muted fst-italic">En vous inscrivant, vous acceptez les conditions d'utilisation de Expedit New Style. <a href="#" class="text-primary text-decoration-underline fst-normal fw-medium">Condition d'utilisation</a></p>
                                                 </div>
 
                                                 <div id="password-contain" class="p-3 bg-light mb-2 rounded">
-                                                    <h5 class="fs-13">Password must contain:</h5>
-                                                    <p id="pass-length" class="invalid fs-12 mb-2">Minimum <b>8 characters</b></p>
+                                                    <h5 class="fs-13">Contrainte du mot de passe:</h5>
+                                                    <p id="pass-length" class="invalid fs-12 mb-2">Minimum <b>8 characteres</b></p>
                                                     <p id="pass-lower" class="invalid fs-12 mb-2">At <b>lowercase</b> letter (a-z)</p>
                                                     <p id="pass-upper" class="invalid fs-12 mb-2">At least <b>uppercase</b> letter (A-Z)</p>
                                                     <p id="pass-number" class="invalid fs-12 mb-0">A least <b>number</b> (0-9)</p>
                                                 </div>
 
                                                 <div class="mt-4">
-                                                    <button class="btn btn-success w-100" type="submit">Sign Up</button>
+                                                    <button class="btn btn-success w-100" type="submit">S'inscrire</button>
                                                 </div>
 
-                                                <div class="mt-4 text-center">
-                                                    <div class="signin-other-title">
-                                                        <h5 class="fs-13 mb-4 title text-muted">Create account with</h5>
-                                                    </div>
-
-                                                    <div>
-                                                        <button type="button" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-facebook-fill fs-16"></i></button>
-                                                        <button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-google-fill fs-16"></i></button>
-                                                        <button type="button" class="btn btn-dark btn-icon waves-effect waves-light"><i class="ri-github-fill fs-16"></i></button>
-                                                        <button type="button" class="btn btn-info btn-icon waves-effect waves-light"><i class="ri-twitter-fill fs-16"></i></button>
-                                                    </div>
-                                                </div>
                                             </form>
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Already have an account ? <a href="auth-signin-cover.html" class="fw-semibold text-primary text-decoration-underline"> Signin</a> </p>
+                                            <p class="mb-0">Vous avez déja un compte ? <a href="{{ route('logine') }}" class="fw-semibold text-primary text-decoration-underline"> Se connecter</a> </p>
                                         </div>
                                     </div>
                                 </div>

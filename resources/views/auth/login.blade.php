@@ -138,7 +138,7 @@
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Vous n'avez pas de compte ?  <a href="auth-signup-cover.html" class="fw-semibold text-primary text-decoration-underline"> Inscrivez-vous </a> </p>
+                                            <p class="mb-0">Vous n'avez pas de compte ?  <a href="{{ route('register') }}" class="fw-semibold text-primary text-decoration-underline"> Inscrivez-vous </a> </p>
                                         </div>
                                     </div>
                                 </div>

@@ -54,11 +54,11 @@
                                  alt="avatar" class="rounded-circle me-2" width="40" height="40">
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
-                                    {{ Auth::check() ? Auth::user()->name : 'Invité' }}
+                                   {{ Auth::check() ? Auth::user()->name . ' ' . Auth::user()->lastname : 'Invité' }}
                                 </span>
                                 
                                 <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">
-                                    {{ Auth::check() ? Auth::user()->email : '' }}
+                                    {{ Auth::check() ? Auth::user()->role : '' }}
                                 </span>
                             </span>
                         </span>

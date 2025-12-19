@@ -128,9 +128,9 @@
                                 <label>Role</label>
                                 <select name="role" class="form-control">
                                     <option value="">-- Choisir --</option>
-                                    <option value="patron">Patron</option>
-                                    <option value="sous_patron">Sous patron</option>
-                                    <option value="administrateur">Administrateur</option>
+                                    <option value="Patron">Patron</option>
+                                    <option value="Sous_patron">Sous patron</option>
+                                    <option value="Administrateur">Administrateur</option>
                                 </select>
                              <x-input-error :messages="$errors->get('role')" class="mt-2" />
                 </div>
@@ -145,16 +145,7 @@
                 </div>
             </div>
 
-            {{-- Règles du mot de passe --}}
-            <div class="bg-light p-3 rounded mb-3">
-                <h6 class="mb-2">Le mot de passe doit contenir :</h6>
-                <ul class="mb-0 small text-muted">
-                    <li>Minimum <strong>8 caractères</strong></li>
-                    <li>Au moins <strong>1 lettre minuscule</strong></li>
-                    <li>Au moins <strong>1 lettre majuscule</strong></li>
-                    <li>Au moins <strong>1 chiffre</strong></li>
-                </ul>
-            </div>
+            
             
 
             <div class="text-end mt-3">

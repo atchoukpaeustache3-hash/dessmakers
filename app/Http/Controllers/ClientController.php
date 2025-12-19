@@ -243,7 +243,7 @@ return redirect()->route('client.index')
         'name'          => ['required', 'string', 'max:255'],
         'lastname'      => ['required', 'string', 'max:255'],
         'numero'         => ['required', 'string', 'max:20'],
-        'role'          => ['required', 'in:patron,sous_patron,administrateur'],
+        'role'          => ['required', 'in:Patron,Sous_patron,Administrateur'],
         'sexe' => 'required|in:homme,femme',
 
         //'date_venue'    => ['required', 'date'],
@@ -284,7 +284,29 @@ public function indexe()
     $users = User::latest()->get();
     return view('back.pages.utilisateurs.index', compact('users'));
 }
+public function updete(Request $request , User $user)
+{
 
+$request->validate([
+    'name' => 'required',
+    'lastname' => 'required',
+    'email' => 'required|email',
+    'numero' => 'required',
+    'date_naissance' => 'required',
+    'role' => 'required',
+    'sexe' => 'required',
+]);
 
+$user->update($request->except(['password']));
+
+return redirect()->route('user.index')
+                     ->with('success', 'Utilisateur modifier avec succès.');
+}
+
+ public function editer($id)
+{
+    $user = User::findOrFail($id);
+    return view('back.pages.utilisateurs.edit', compact('user'));
+}
 
 }

@@ -1,50 +1,109 @@
 @extends('back.layouts.master')
-@section('title', 'Modifier un type de forfait')
+
+@section('title', 'Modifier Utilisateur')
+@section('page-title', 'Modifier Utilisateur')
+
+@section('breadcrumb')
+    <li class="breadcrumb-item active">Modifier Utilisateur</li>
+@endsection
+
 @section('content')
 
-    <div class="row">
-    <div class="col-lg-10 offset-lg-1">
-        <div class="card">
-            <div class="card-body">
+<div class="container mt-4">
+    <div class="card shadow-lg p-4">
 
-                <h4 class="card-title">@yield('title')</h4>
-                <p class="card-title-desc">Modifiez les informations ci-dessous</p>
+        <h3 class="mb-4">Modifier l'utilisateur</h3>
 
-                <form method="POST" action="{{ route('typepackages.update', $type) }}" up-target=".main">
-                    @csrf
-                    @method('PUT')
+        {{-- Affichage des erreurs --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="mb-3">
-                                <label for="label">Nom</label>
-                                <input name="label" type="text" class="form-control @error('label') is-invalid @enderror" value="{{ old('label', $type->label) }}">
-                                @error('label')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
+        <form method="POST" action="{{ route('user.update', $user->id) }}" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
 
-                        <div class="col-12">
-                            <div class="mb-3">
-                                <label for="description">Description</label>
-                                <textarea name="description" class="form-control @error('description') is-invalid @enderror" rows="4">{{ old('description', $type->description) }}</textarea>
-                                @error('description')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
+            <div class="row">
 
-                        <div class="col-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary">Mettre à jour</button>
-                        </div>
-                    </div>
-                </form>
+                {{-- Nom --}}
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Nom</label>
+                    <input type="text" class="form-control" name="name"
+                           value="{{ old('name', $user->name) }}" required>
+                </div>
+
+                {{-- Prénom --}}
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Prénom</label>
+                    <input type="text" class="form-control" name="lastname"
+                           value="{{ old('lastname', $user->lastname) }}" required>
+                </div>
+
+                {{-- Numéro --}}
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Numéro</label>
+                    <input type="text" class="form-control" name="numero"
+                           value="{{ old('numero', $user->numero) }}" required>
+                </div>
+
+                {{-- Date naissance --}}
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Date de naissance</label>
+                    <input type="date" class="form-control" name="date_naissance"
+                           value="{{ old('date_naissance', $user->date_naissance) }}" required>
+                </div>
+
+                {{-- Photo --}}
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Photo</label>
+                    <input type="file" class="form-control" name="photo">
+                </div>
+
+                {{-- Email --}}
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Adresse Email</label>
+                    <input type="email" class="form-control" name="email"
+                           value="{{ old('email', $user->email) }}" required>
+                </div>
+
+                {{-- Rôle --}}
+                <div class="col-md-6 mb-3">
+                    <label>Rôle</label>
+                    <select name="role" class="form-control">
+                        <option value="">-- Choisir --</option>
+                        <option value="Patron" {{ $user->role == 'Patron' ? 'selected' : '' }}>Patron</option>
+                        <option value="Sous_patron" {{ $user->role == 'Sous_patron' ? 'selected' : '' }}>Sous patron</option>
+                        <option value="Administrateur" {{ $user->role == 'Administrateur' ? 'selected' : '' }}>Administrateur</option>
+                    </select>
+                </div>
+
+                {{-- Sexe --}}
+                <div class="col-md-6 mb-3">
+                    <label>Sexe</label>
+                    <select name="sexe" class="form-control">
+                        <option value="">-- Choisir --</option>
+                        <option value="homme" {{ $user->sexe == 'Homme' ? 'selected' : '' }}>Homme</option>
+                        <option value="femme" {{ $user->sexe == 'Femme' ? 'selected' : '' }}>Femme</option>
+                    </select>
+                </div>
 
             </div>
-        </div>
+
+            <div class="text-end mt-3">
+                <button type="submit" class="btn btn-primary">
+                    Mettre à jour
+                </button>
+            </div>
+
+        </form>
+
     </div>
 </div>
 
 @endsection
-

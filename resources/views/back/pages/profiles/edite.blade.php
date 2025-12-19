@@ -72,7 +72,7 @@
 
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title mb-3">Complete Your Profile</h5>
+                                        <h5 class="card-title mb-3">Complétez votre profil</h5>
                                         <div class="progress animated-progress custom-progress progress-label">
                                             <div class="progress-bar bg-danger" style="width: 30%">
                                                 <div class="label">30%</div>
@@ -91,10 +91,10 @@
                             <div class="card-header">
                                 <ul class="nav nav-tabs-custom card-header-tabs">
                                     <li class="nav-item">
-                                        <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails">Personal Details</a>
+                                        <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails">Détails personnel</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#changePassword">Change Password</a>
+                                        <a class="nav-link" data-bs-toggle="tab" href="#changePassword">Changer le mot de passe</a>
                                     </li>
                                 </ul>
                             </div>
@@ -114,7 +114,7 @@
                                                     <input type="text" name="name" class="form-control" value="{{ Auth::user()->name }}">
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <label class="form-label">Prenom</label>
+                                                    <label class="form-label">Prénom</label>
                                                     <input type="text" name="lastname" class="form-control" value="{{ Auth::user()->lastname }}">
                                                 </div>
                                                 <div class="col-lg-6">

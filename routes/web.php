@@ -52,8 +52,10 @@ Route::get('/client', [ClientController::class, 'create'])->name('client.create'
  Route::post('client', [ClientController::class, 'store'])->name('client.store');
 
 Route::get('/clients/{client}/edit', [ClientController::class, 'edit'])->name('client.edit');
+Route::get('/utilisateurs/{user}/edit', [ClientController::class, 'editer'])->name('user.edit');
 
 Route::put('/clients/{client}', [ClientController::class, 'update'])->name('client.update');
+Route::put('/utilisateurs/{user}', [ClientController::class, 'updete'])->name('user.update');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('home');
 
